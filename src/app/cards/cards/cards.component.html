@@ -1,3 +1,10 @@
 <div class="text-layout">
-  cards works
+  <div class="card" (click)="takeCard()" [@cardFlip]="data.state">
+    <div class="face back">
+        <img src="assets/card-back.jpg" width="150px">
+    </div>
+    <div class="face front">
+        <p>{{data.number}}</p>
+    </div>
+</div>
 </div>
