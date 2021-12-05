@@ -1,5 +1,5 @@
 <div class="text-layout">
-  <div class="card" (click)="takeCard()" [@cardFlip]="data.state">
+  <div class="card" (click)="takeCard.emit()" [@cardFlip]="data.state">
     <div class="face back">
         <img src="assets/card-back.jpg" width="150px">
     </div>

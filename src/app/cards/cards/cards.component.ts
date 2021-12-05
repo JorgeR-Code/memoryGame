@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {trigger,state,style,animate,transition} from '@angular/animations';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardFormat } from '../interfaces/card.interface';
+import {trigger,state,style,animate,transition} from '@angular/animations';
 
 @Component({
   selector: 'app-cards',
@@ -22,21 +22,18 @@ import { CardFormat } from '../interfaces/card.interface';
       ])
     ])
   ]
+
 })
 export class CardsComponent implements OnInit {
 
-  data: CardFormat = {
-    number: 5,
+  @Input() data: CardFormat= {
+    number: 0,
     state: "default"
   };
 
-  takeCard() {
-    if (this.data.state === "default") {
-      this.data.state = "flipped";
-    } else {
-      this.data.state = "default";
-    }
-  }
+
+  @Output() takeCard = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
