@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardsComponent } from './cards/cards.component';
 import { MultiCardsComponent } from './multi-cards/multi-cards.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -10,10 +11,12 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
   declarations: [
     CardsComponent,
     MultiCardsComponent
+
   ],
   imports: [
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
+    SharedModule
   ],
   exports:[
     CardsComponent,

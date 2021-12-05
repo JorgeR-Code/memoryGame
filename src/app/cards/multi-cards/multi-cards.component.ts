@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardFormat } from '../interfaces/card.interface';
 import { PrimeNGConfig } from "primeng/api";
-import {ConfirmationService} from 'primeng/api';
+
 
 
 @Component({
@@ -15,10 +15,10 @@ export class MultiCardsComponent implements OnInit {
   cards: CardFormat[] = [];
   numberCards: CardFormat[] = [];
 
-  cardsOk: number = 0;
+  cardsOk: number = 7;
 
 
-  constructor(private primeNGConfig: PrimeNGConfig, private confirmationService: ConfirmationService) {
+  constructor(private primeNGConfig: PrimeNGConfig) {
 
   }
 
@@ -89,27 +89,18 @@ export class MultiCardsComponent implements OnInit {
         card2.state = 'flipped';
         this.numberCards = [];
 
-        if (this.cardsOk === this.cardNumbers.length) {
-         this.confirm()
-        }
       }
 
     }, 1000);
   }
 
   reset(){
+    this.cardsOk = 7;
     this.objectCard();
   }
 
 
-  confirm() {
-    this.confirmationService.confirm({
-      key: 'win',
-      accept: () => {
-          console.log('winner')
-      }
-  });
-}
+
 }
 
 

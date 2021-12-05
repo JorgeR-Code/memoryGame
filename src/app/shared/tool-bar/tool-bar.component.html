@@ -1,0 +1,12 @@
+<p-toolbar>
+  <p-confirmDialog #cd key="win" header="Ganaste!" [closable]="closeable" >
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-angle-double-right" iconPos="right" label="Volver a jugar!" (click)="cd.accept()"></p-button>
+  </ng-template>
+  </p-confirmDialog>
+  <p *ngIf="cardsOk == cardNumbers.length? confirm() : '' "></p>
+
+  <div class="p-toolbar-group-right">
+    <p-button type="button" label="Reset" styleClass="p-button-outlined p-button-rounded p-button-danger" (onClick)="reset.emit()"></p-button>
+  </div>
+</p-toolbar>

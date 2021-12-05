@@ -1,11 +1,5 @@
-<p-toolbar>
-  <p-confirmDialog key="win" header="Ganaste!"></p-confirmDialog>
 
-  <div class="p-toolbar-group-right">
-    <p-button type="button" label="Reset" styleClass="p-button-outlined p-button-rounded p-button-danger" (onClick)="reset()"></p-button>
-  </div>
-</p-toolbar>
-
+<app-tool-bar [cardsOk]="cardsOk" [cardNumbers]="cardNumbers" (reset)="reset()"></app-tool-bar>
 
 <div class="card mt-5">
   <div class="card-container flex align-items-center justify-content-center">
