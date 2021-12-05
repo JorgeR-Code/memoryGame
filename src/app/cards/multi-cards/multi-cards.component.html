@@ -1,10 +1,17 @@
+<p-toolbar>
+  <p-confirmDialog key="win" header="Ganaste!"></p-confirmDialog>
 
-<div class="card">
+  <div class="p-toolbar-group-right">
+    <p-button type="button" label="Reset" styleClass="p-button-outlined p-button-rounded p-button-danger" (onClick)="reset()"></p-button>
+  </div>
+
+
+
+</p-toolbar>
+<div class="card mt-5">
   <div class="card-container flex align-items-center justify-content-center">
       <div class="grid w-11 lg:w-7 ">
-
         <app-cards class="col-6 md:col-4 lg:col-3" *ngFor="let card of cards; let i=index" [data]="card" (takeCard)="takeCard(i)"></app-cards>
-
     </div>
   </div>
 </div>

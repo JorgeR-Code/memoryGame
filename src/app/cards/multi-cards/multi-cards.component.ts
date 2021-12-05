@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CardFormat } from '../interfaces/card.interface';
+import { PrimeNGConfig } from "primeng/api";
+import {ConfirmationService} from 'primeng/api';
+
 
 @Component({
   selector: 'app-multi-cards',
@@ -8,17 +11,22 @@ import { CardFormat } from '../interfaces/card.interface';
 })
 export class MultiCardsComponent implements OnInit {
 
+  display: boolean = false;
+
   cardNumbers: number[] = [5,6,7,8,9,10,11,12];
 
   cards: CardFormat[] = [];
   numberCards: any[] = [];
+  cardsOk: number = 0;
 
 
-  constructor() {
+  constructor(private primeNGConfig: PrimeNGConfig, private confirmationService: ConfirmationService) {
 
   }
 
   ngOnInit(): void {
+
+    this.primeNGConfig.ripple = true;
 
     this.objectCard();
   }
@@ -57,7 +65,7 @@ export class MultiCardsComponent implements OnInit {
       this.numberCards.push(cardflipped);
 
       if (this.numberCards.length === 2) {
-        // hacer la comparacion
+        this.checkForCardMatch();
      }
 
     } else if (cardflipped.state === 'flipped') {
@@ -68,5 +76,44 @@ export class MultiCardsComponent implements OnInit {
 
   };
 
+  checkForCardMatch(): void {
+    setTimeout(() => {
+      const card1 = this.numberCards[0];
+      const card2 = this.numberCards[1];
+      const compare = card1.number === card2.number ? 'matched' : 'default';
+      card1.state = compare;
+      card2.state = compare;
 
+      this.numberCards = [];
+
+      if (compare === 'matched') {
+        this.cardsOk++;
+        card1.state = 'flipped';
+        card2.state = 'flipped';
+        this.numberCards = [];
+
+        if (this.cardsOk === this.cardNumbers.length) {
+         this.confirm()
+        }
+      }
+
+    }, 1000);
+  }
+
+  reset(){
+    this.objectCard();
+  }
+
+
+  confirm() {
+    this.confirmationService.confirm({
+      key: 'win',
+      accept: () => {
+          console.log('winner')
+      }
+  });
 }
+}
+
+
+

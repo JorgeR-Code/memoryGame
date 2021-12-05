@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 //PrimeNG
 import {ButtonModule} from 'primeng/button';
+import {ToolbarModule} from 'primeng/toolbar';
+import {ConfirmationService} from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 
 
 @NgModule({
   exports:[
-    ButtonModule
-  ]
+    ButtonModule,
+    ToolbarModule,
+    ConfirmDialogModule
+
+  ],
+  providers: [ConfirmationService]
 })
 export class PrimeNgModule { }

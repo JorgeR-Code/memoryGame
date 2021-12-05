@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardsComponent } from './cards/cards.component';
 import { MultiCardsComponent } from './multi-cards/multi-cards.component';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 
 
@@ -11,7 +12,8 @@ import { MultiCardsComponent } from './multi-cards/multi-cards.component';
     MultiCardsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrimeNgModule
   ],
   exports:[
     CardsComponent,
