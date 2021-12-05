@@ -11,6 +11,8 @@ export class MultiCardsComponent implements OnInit {
   cardNumbers: number[] = [5,6,7,8,9,10,11,12];
 
   cards: CardFormat[] = [];
+  numberCards: any[] = [];
+
 
   constructor() {
 
@@ -26,7 +28,7 @@ export class MultiCardsComponent implements OnInit {
     this.cardNumbers.forEach((numberCard) =>{
       const coupleCard: CardFormat = {
         number: numberCard,
-        state: 'flipped'
+        state: 'default'
       };
 
       this.cards.push({...coupleCard});
@@ -34,7 +36,6 @@ export class MultiCardsComponent implements OnInit {
     });
 
     this.cards = this.mixCards(this.cards);
-    console.log(this.cards);
 
   }
 
@@ -47,6 +48,23 @@ export class MultiCardsComponent implements OnInit {
 
   takeCard(index: number){
 
+    let cardflipped = this.cards[index];
+    console.log(cardflipped)
+
+    if (cardflipped.state === 'default' && this.numberCards.length < 2)
+    {
+      cardflipped.state = 'flipped';
+      this.numberCards.push(cardflipped);
+
+      if (this.numberCards.length === 2) {
+        // hacer la comparacion
+     }
+
+    } else if (cardflipped.state === 'flipped') {
+      cardflipped.state = 'default';
+      this.numberCards.pop();
+
+    }
 
   };
 
