@@ -11,12 +11,10 @@ import {ConfirmationService} from 'primeng/api';
 })
 export class MultiCardsComponent implements OnInit {
 
-  display: boolean = false;
-
   cardNumbers: number[] = [5,6,7,8,9,10,11,12];
-
   cards: CardFormat[] = [];
-  numberCards: any[] = [];
+  numberCards: CardFormat[] = [];
+
   cardsOk: number = 0;
 
 
@@ -57,7 +55,6 @@ export class MultiCardsComponent implements OnInit {
   takeCard(index: number){
 
     let cardflipped = this.cards[index];
-    console.log(cardflipped)
 
     if (cardflipped.state === 'default' && this.numberCards.length < 2)
     {

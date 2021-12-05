@@ -18,7 +18,7 @@ import {trigger,state,style,animate,transition} from '@angular/animations';
         animate('400ms')
       ]),
       transition('flipped => default', [
-        animate('200ms')
+        animate('400ms')
       ])
     ])
   ]
