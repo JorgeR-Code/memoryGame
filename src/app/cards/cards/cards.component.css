@@ -3,11 +3,11 @@
   perspective: 600px;
 }
 
-.card {
+.cardG {
   box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
   border-radius: 5px;
-  height: 212px;
-  width: 150px;
+  height: 150px;
+  width: 100px;
   cursor: pointer;
   position: relative;
   transform-style: preserve-3d;
@@ -20,11 +20,11 @@
   height: 100%;
   border-radius: inherit;
   backface-visibility: hidden;
-  background-color: #e3e4e5;
+  background-color: #979797;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 8rem;
+  font-size: 5rem;
 
 }
 img {

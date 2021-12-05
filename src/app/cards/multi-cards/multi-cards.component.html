@@ -1,2 +1,13 @@
-<app-cards *ngFor="let card of cards; let i=index" [data]="card" (takeCard)="takeCard(i)"></app-cards>
+
+<div class="card">
+  <div class="card-container flex align-items-center justify-content-center">
+      <div class="grid w-11 lg:w-7 ">
+
+        <app-cards class="col-6 md:col-4 lg:col-3" *ngFor="let card of cards; let i=index" [data]="card" (takeCard)="takeCard(i)"></app-cards>
+
+    </div>
+  </div>
+</div>
+
+
 

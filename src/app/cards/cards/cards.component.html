@@ -1,10 +1,10 @@
 <div class="text-layout">
-  <div class="card" (click)="takeCard.emit()" [@cardFlip]="data.state">
-    <div class="face back">
-        <img src="assets/card-back.jpg" width="150px">
+    <div class="cardG" (click)="takeCard.emit()" [@cardFlip]="data.state">
+      <div class="face back">
+          <img src="assets/card-back.jpg" width="100px">
+      </div>
+      <div class="face front">
+          <p>{{data.number}}</p>
+      </div>
     </div>
-    <div class="face front">
-        <p>{{data.number}}</p>
-    </div>
-</div>
 </div>

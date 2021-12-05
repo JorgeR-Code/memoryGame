@@ -26,7 +26,7 @@ export class MultiCardsComponent implements OnInit {
     this.cardNumbers.forEach((numberCard) =>{
       const coupleCard: CardFormat = {
         number: numberCard,
-        state: 'default'
+        state: 'flipped'
       };
 
       this.cards.push({...coupleCard});
