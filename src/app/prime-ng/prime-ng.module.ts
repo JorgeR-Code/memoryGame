@@ -4,6 +4,7 @@ import {ButtonModule} from 'primeng/button';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ConfirmationService} from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {KnobModule} from 'primeng/knob';
 
 
 
@@ -11,7 +12,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
   exports:[
     ButtonModule,
     ToolbarModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    KnobModule
 
   ],
   providers: [ConfirmationService]

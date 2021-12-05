@@ -15,7 +15,7 @@ export class MultiCardsComponent implements OnInit {
   cards: CardFormat[] = [];
   numberCards: CardFormat[] = [];
 
-  cardsOk: number = 7;
+  cardsOk: number = 0;
 
 
   constructor(private primeNGConfig: PrimeNGConfig) {
@@ -95,7 +95,7 @@ export class MultiCardsComponent implements OnInit {
   }
 
   reset(){
-    this.cardsOk = 7;
+    this.cardsOk = 0;
     this.objectCard();
   }
 
