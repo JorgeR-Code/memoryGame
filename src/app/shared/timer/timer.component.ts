@@ -37,4 +37,8 @@ startTimer() {
     clearInterval(this.interval);
     this.startTimer();
   }
+
+  pauseTime(){
+    clearInterval(this.interval);
+  }
 }

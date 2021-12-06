@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output,ViewChild, AfterViewInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output,ViewChild } from '@angular/core';
 import {ConfirmationService, PrimeNGConfig} from 'primeng/api';
 import { TimerComponent } from '../timer/timer.component';
 
@@ -7,7 +7,7 @@ import { TimerComponent } from '../timer/timer.component';
   templateUrl: './tool-bar.component.html',
   styleUrls: ['./tool-bar.component.css']
 })
-export class ToolBarComponent implements OnInit, AfterViewInit {
+export class ToolBarComponent implements OnInit{
 
   @ViewChild(TimerComponent) childTimer: TimerComponent = new TimerComponent;
 
@@ -18,17 +18,13 @@ export class ToolBarComponent implements OnInit, AfterViewInit {
 
   closeable: boolean = false;
 
-  ngAfterViewInit() {
-    this.startGame();; // I am a child component!
-  }
-
   constructor(private primeNGConfig: PrimeNGConfig ,private confirmationService: ConfirmationService) {
 
   }
 
   ngOnInit(): void {
     this.primeNGConfig.ripple = true;
-
+    this.startGame();
   }
 
   clock(time: number){
@@ -74,6 +70,18 @@ tryAgain() {
 resetAll(){
   this.reset.emit();
   this.childTimer.resetTime();
+}
+
+
+pause(){
+this.childTimer.pauseTime();
+this.confirmationService.confirm({
+  key: 'pause',
+  rejectVisible: false,
+  accept: () => {
+    this.childTimer.startTimer();
+  }
+});
 }
 
 }
