@@ -1,13 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output,ViewChild, AfterViewInit } from '@angular/core';
 import {ConfirmationService, PrimeNGConfig} from 'primeng/api';
+import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-tool-bar',
   templateUrl: './tool-bar.component.html',
   styleUrls: ['./tool-bar.component.css']
 })
-export class ToolBarComponent implements OnInit {
+export class ToolBarComponent implements OnInit, AfterViewInit {
 
+  @ViewChild(TimerComponent) childTimer: TimerComponent = new TimerComponent;
 
   @Input() cardsOk: number = 0;
   @Input() cardNumbers: number[] = [];
@@ -16,23 +18,62 @@ export class ToolBarComponent implements OnInit {
 
   closeable: boolean = false;
 
+  ngAfterViewInit() {
+    this.startGame();; // I am a child component!
+  }
 
-  constructor(private primeNGConfig: PrimeNGConfig ,private confirmationService: ConfirmationService) { }
+  constructor(private primeNGConfig: PrimeNGConfig ,private confirmationService: ConfirmationService) {
+
+  }
 
   ngOnInit(): void {
     this.primeNGConfig.ripple = true;
 
   }
 
+  clock(time: number){
+
+    if (time === 0 && this.cardsOk !== this.cardNumbers.length){
+      this.tryAgain();
+    }
+    if(this.cardsOk === this.cardNumbers.length && time !==0){
+      this.confirm();
+    }
+  }
+
+  startGame(){
+    this.confirmationService.confirm({
+      key: 'start',
+      rejectVisible: false,
+      accept: () => {
+        this.childTimer.startTimer();
+      }
+  });
+  }
 
   confirm() {
     this.confirmationService.confirm({
       key: 'win',
       rejectVisible: false,
       accept: () => {
-          this.reset.emit();
+          this.resetAll();
       }
   });
+}
+
+tryAgain() {
+  this.confirmationService.confirm({
+    key: 'defeat',
+    rejectVisible: false,
+    accept: () => {
+        this.resetAll();
+    }
+});
+}
+
+resetAll(){
+  this.reset.emit();
+  this.childTimer.resetTime();
 }
 
 }

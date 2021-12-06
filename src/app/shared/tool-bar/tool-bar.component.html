@@ -1,13 +1,26 @@
+<p-confirmDialog #cd key="win" header="Eres muy bueno!" [closable]="closeable" >
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-angle-double-right" iconPos="right" label="Otra partida!" (click)="cd.accept()"></p-button>
+</ng-template>
+
+</p-confirmDialog>
+<p-confirmDialog #cr key="defeat" header="Oh no! se terminó tu tiempo." [closable]="closeable" >
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-angle-double-right" iconPos="right" label="Volver a intentar!" (click)="cr.accept()"></p-button>
+</ng-template>
+</p-confirmDialog>
+
+<p-confirmDialog #cz key="start" header="¿Estás listo?" [closable]="closeable" >
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-angle-double-right" iconPos="right" label="Vamos!" (click)="cz.accept()"></p-button>
+</ng-template>
+</p-confirmDialog>
+
 <p-toolbar>
-  <p-confirmDialog #cd key="win" header="Ganaste!" [closable]="closeable" >
-    <ng-template pTemplate="footer">
-      <p-button icon="pi pi-angle-double-right" iconPos="right" label="Volver a jugar!" (click)="cd.accept()"></p-button>
-  </ng-template>
-  </p-confirmDialog>
-  <app-timer></app-timer>
-  <p *ngIf="cardsOk == cardNumbers.length? confirm() : '' "></p>
+
+  <app-timer (timeOut)="clock($event)"></app-timer>
 
   <div class="p-toolbar-group-right">
-    <p-button type="button" label="Reset" styleClass="p-button-outlined p-button-rounded p-button-danger" (onClick)="reset.emit()"></p-button>
+    <p-button type="button" label="Reset" styleClass="p-button-outlined p-button-rounded p-button-danger" (onClick)="resetAll()"></p-button>
   </div>
 </p-toolbar>
