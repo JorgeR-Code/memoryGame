@@ -1,7 +1,7 @@
-<div class="text-layout">
+<div class="text-layout  flex align-items-center justify-content-center">
     <div class="cardG" (click)="takeCard.emit()" [@cardFlip]="data.state">
       <div class="face">
-          <img src="assets/card-back.jpg" width="100px">
+          <img src="assets/card-back.jpg">
       </div>
       <div class="face front">
           <p>{{data.number}}</p>

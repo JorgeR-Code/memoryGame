@@ -5,6 +5,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {ConfirmationService} from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {KnobModule} from 'primeng/knob';
+import {SidebarModule} from 'primeng/sidebar';
 
 
 
@@ -13,7 +14,8 @@ import {KnobModule} from 'primeng/knob';
     ButtonModule,
     ToolbarModule,
     ConfirmDialogModule,
-    KnobModule
+    KnobModule,
+    SidebarModule
 
   ],
   providers: [ConfirmationService]

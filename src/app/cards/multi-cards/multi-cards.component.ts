@@ -12,6 +12,9 @@ import { PrimeNGConfig } from "primeng/api";
 export class MultiCardsComponent implements OnInit {
 
   cardNumbers: number[] = [5,6,7,8,9,10,11,12];
+  level4x4: number[] = [5,6,7,8,9,10,11,12];
+  level6x6: number[] = [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+
   cards: CardFormat[] = [];
   numberCards: CardFormat[] = [];
 
@@ -99,6 +102,14 @@ export class MultiCardsComponent implements OnInit {
     this.objectCard();
   }
 
+  level4(){
+    this.cardNumbers = this.level4x4;
+    this.reset();
+  }
+  level6(){
+    this.cardNumbers = this.level6x6;
+    this.reset();
+  }
 
 
 }

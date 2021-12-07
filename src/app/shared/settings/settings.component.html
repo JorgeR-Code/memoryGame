@@ -1,0 +1,22 @@
+<p-sidebar [(visible)]="settings" position="left" [baseZIndex]="10000">
+  <h3>Nivel</h3>
+  <div class="flex justify-content-center">
+    <p-button type="button" label="4 X 4" class="p-button-success m-2" (onClick)="level4F.emit()"></p-button>
+    <p-button type="button" label="6 X 6" class="p-button-success m-2" (onClick)="level6F.emit()"></p-button>
+  </div>
+
+  <hr>
+  <h3>Cambiar cartas</h3>
+  <div class="flex justify-content-center">
+    <p-button type="button" label="Números" class="p-button-success m-2"></p-button>
+    <p-button type="button" label="Icons" class="p-button-success m-2"></p-button>
+  </div>
+</p-sidebar>
+<div class="card">
+  <div>
+    <p-button type="button" styleClass="mt-3 p-button-rounded p-button-outlined" (click)="settingsFunc()" icon="pi pi-cog"></p-button>
+  </div>
+</div>
+
+
+

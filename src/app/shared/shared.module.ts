@@ -5,13 +5,15 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { ConfirmationService } from 'primeng/api';
 import { TimerComponent } from './timer/timer.component';
 import { FormsModule } from '@angular/forms';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
 @NgModule({
   declarations: [
     ToolBarComponent,
-    TimerComponent
+    TimerComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   exports:[
-    ToolBarComponent
+    ToolBarComponent,
+    SettingsComponent
   ],
   providers: [ConfirmationService]
 })
