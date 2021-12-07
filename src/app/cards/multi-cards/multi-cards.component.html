@@ -2,14 +2,14 @@
 <app-tool-bar [cardsOk]="cardsOk" [cardNumbers]="cardNumbers" (reset)="reset()"></app-tool-bar>
 <app-settings (level4F)="level4()" (level6F)="level6()"></app-settings>
 
-<!-- <div class="card mt-3">
+<div *ngIf="cardNumbers.length === 8" class="card mt-3">
   <div class="card-container flex align-items-center justify-content-center">
       <div class="grid w-12 lg:w-7">
         <app-cards class="col-3 md:col-3 lg:col-3" *ngFor="let card of cards; let i=index" [data]="card" (takeCard)="takeCard(i)"></app-cards>
     </div>
   </div>
-</div> -->
-<div class="card mt-3">
+</div>
+<div *ngIf="cardNumbers.length > 8" class="card mt-3">
   <div class="card-container flex align-items-center justify-content-center">
       <div class="grid w-12 lg:w-9">
         <app-cards class="col-2 md:col-2 lg:col-2 px-0" *ngFor="let card of cards; let i=index" [data]="card" (takeCard)="takeCard(i)"></app-cards>

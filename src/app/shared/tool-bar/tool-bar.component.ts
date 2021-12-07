@@ -9,7 +9,7 @@ import { TimerComponent } from '../timer/timer.component';
 })
 export class ToolBarComponent implements OnInit{
 
-  @ViewChild(TimerComponent) childTimer: TimerComponent = new TimerComponent;
+  @ViewChild(TimerComponent) childTimer!: TimerComponent;
 
   @Input() cardsOk: number = 0;
   @Input() cardNumbers: number[] = [];

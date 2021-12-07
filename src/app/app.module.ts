@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CardsModule } from './cards/cards.module';
+import { ChangeTimeService } from './services/timeChange.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -17,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ChangeTimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

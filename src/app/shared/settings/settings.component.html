@@ -11,6 +11,18 @@
     <p-button type="button" label="Números" class="p-button-success m-2"></p-button>
     <p-button type="button" label="Icons" class="p-button-success m-2"></p-button>
   </div>
+
+  <hr>
+  <h3>Pon tu límite de tiempo</h3>
+  <div class="flex justify-content-center">
+
+    <p-button type="button" icon="pi pi-minus" title="Add Column" (click)="restTime()" [disabled]="disable" class="m-2"></p-button>
+
+    <p>{{timeCustom}} seg.</p>
+
+    <p-button type="button" icon="pi pi-plus" title="Add Column" (click)="addTime()" class="m-2"></p-button>
+  </div>
+
 </p-sidebar>
 <div class="card">
   <div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeTimeService } from 'src/app/services/timeChange.service';
 
 @Component({
   selector: 'app-timer',
@@ -10,10 +11,14 @@ export class TimerComponent implements OnInit {
   @Output() timeOut: EventEmitter<number> = new EventEmitter();
 
   timer: number = 100;
+  maxTimer: number = 100;
   interval: any = 0;
-  constructor() { }
+
+  constructor(private changeTime: ChangeTimeService) { }
 
   ngOnInit(): void {
+    this.changeTime.customTimer.subscribe(tm => this.timer = tm );
+    this.changeTime.customTimer.subscribe(tm => this.maxTimer = tm );
 
   }
 
@@ -33,7 +38,7 @@ startTimer() {
 
 
   resetTime(){
-    this.timer = 100;
+    this.changeTime.customTimer.subscribe(tm => this.timer = tm );
     clearInterval(this.interval);
     this.startTimer();
   }
