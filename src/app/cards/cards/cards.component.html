@@ -4,7 +4,8 @@
           <img src="assets/card-back.jpg">
       </div>
       <div class="face front">
-          <p>{{data.number}}</p>
+          <p *ngIf="!images">{{data.number}}</p>
+          <img *ngIf="images" [src]="'assets/img/'+ data.number +'.jpg'">
       </div>
     </div>
 </div>

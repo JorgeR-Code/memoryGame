@@ -1,4 +1,5 @@
 import {  Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ImageNumbersService } from 'src/app/services/images.service';
 import { ChangeTimeService } from 'src/app/services/timeChange.service';
 
 @Component({
@@ -15,8 +16,9 @@ export class SettingsComponent implements OnInit{
   timeCustom: number = 100;
   settings: boolean = false;
   disable: boolean = false;
+  images: boolean = false;
 
-  constructor(private changeTime: ChangeTimeService ) { }
+  constructor(private changeTime: ChangeTimeService, private changeTemplate:ImageNumbersService ) { }
 
   ngOnInit(): void {
 
@@ -51,5 +53,16 @@ export class SettingsComponent implements OnInit{
     }else{
       this.disable = false;
     }
+  }
+
+  cardsImages(){
+    this.images = true;
+    this.changeTemplate.changeTemplate(this.images);
+  }
+
+  cardsNumbers(){
+    this.images = false;
+    this.changeTemplate.changeTemplate(this.images);
+
   }
 }

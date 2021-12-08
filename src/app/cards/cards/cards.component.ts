@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardFormat } from '../interfaces/card.interface';
 import {trigger,state,style,animate,transition} from '@angular/animations';
+import { ImageNumbersService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-cards',
@@ -26,6 +27,8 @@ import {trigger,state,style,animate,transition} from '@angular/animations';
 })
 export class CardsComponent implements OnInit {
 
+  images: boolean = false;
+
   @Input() data: CardFormat= {
     number: 0,
     state: "default"
@@ -34,9 +37,12 @@ export class CardsComponent implements OnInit {
 
   @Output() takeCard = new EventEmitter();
 
-  constructor() { }
+  constructor(private changeTemplate:ImageNumbersService) { }
 
   ngOnInit(): void {
+
+    this.changeTemplate.customTemplate.subscribe(imgNum => this.images = imgNum);
   }
+
 
 }

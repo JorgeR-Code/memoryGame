@@ -7,6 +7,7 @@ import { TimerComponent } from './timer/timer.component';
 import { FormsModule } from '@angular/forms';
 import { SettingsComponent } from './settings/settings.component';
 import { ChangeTimeService } from '../services/timeChange.service';
+import { ImageNumbersService } from '../services/images.service';
 
 
 
@@ -25,6 +26,10 @@ import { ChangeTimeService } from '../services/timeChange.service';
     ToolBarComponent,
     SettingsComponent
   ],
-  providers: [ConfirmationService,ChangeTimeService]
+  providers: [
+    ConfirmationService,
+    ChangeTimeService,
+    ImageNumbersService
+  ]
 })
 export class SharedModule { }
